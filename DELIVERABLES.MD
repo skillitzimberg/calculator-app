@@ -3,7 +3,9 @@
 ## Description
 
 Next up we’ll be creating a basic calculator app that functions like this example. Again don’t be fooled; a calculator is not as easy to create as it seems.
+
 This project is going to continue your learning with Javascript. Much of what you’ll work on here is going to continue to deepen your programming and logic skills.
+
 KEEP IN MIND: Don’t worry about the styling. You can always revisit the look and feel of the app later. Spend your time on using Javascript to make the calculator work correctly.
 
 ## Expected Time To Complete
