@@ -18,10 +18,11 @@ main,
 #display {
   margin: 1em auto;
   width: 95%;
+  height: 1.5em;
   text-align: center;
   font-size: 2.5em;
-  padding: 0.5em;
   font-family: monospace;
+  overflow-x: hidden;
 }
 
 #keypad {
