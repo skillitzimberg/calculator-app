@@ -22,7 +22,7 @@
       - add an element for memory save button (M+)
       - add an element for memory clear button (M-)
       - add an element for memory recall button (MR)
-  - see the numbers I press appear in the display
+  - see the characters I press appear in the display
   - be able to ADD two numbers
   - see decimals displayed to at least the thousandth (.001)
   - be able to ADD two decimals
