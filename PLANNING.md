@@ -24,8 +24,23 @@
       - add an element for memory recall button (MR)
   - see the characters I press appear in the display
   - be able to ADD two numbers
+    - get a reference to the keypad
+    - attach a listener to the keypad
+    - create an `result` variable
+    - assign `result` the value entered in the display
+    - create an `operation` variable
+    - assign `operation` the value of `+`
+    - get current entry as first entry
+    - get new entry as second entry
+    - coerce first and second entries to integers as first and second operands
+    - add first and second operands
+    - diplay results
   - see decimals displayed to at least the thousandth (.001)
   - be able to ADD two decimals
   - be able to SUBTRACT two numbers
   - be able to MULTIPLY two numbers
   - be able to DIVIDE two numbers
+
+## Things I Did NOT Plan For Or Know About
+
+- I had no real idea about how to get operations to run on successive entries (a number followed by an operation followed by another number). I had to kind of stumble around. I had a vague idea about using an `operations` object to map strings like `+` or `x` to functions to handle those operations. I got this working for simple entries, but the display is holding onto the last result (say a 2) and adding to that string (say adding 6 to the 2 to get 26).
