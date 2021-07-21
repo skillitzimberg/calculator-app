@@ -2,22 +2,31 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  color: silver;
 }
 
 main {
   width: 95%;
   height: 80%;
   margin: 2em auto 0;
+  border: 5px solid silver;
+  box-shadow: 0px 0px 10px cadetblue;
+  background-color: #222;
 }
 
 main,
 #display {
-  border: 1px solid black;
+  border-radius: 0.5em;
+}
+
+#display {
+  border: 2px solid silver;
+  box-shadow: inset 0px 0px 10px cadetblue;
 }
 
 #display {
   margin: 1em auto;
-  padding-right: 0.5em;
+  padding: 0 5px;
   width: 95%;
   height: 1.5em;
   text-align: right;
@@ -31,29 +40,53 @@ main,
   flex-flow: row wrap;
   justify-content: space-between;
   width: 95%;
-  margin: auto;
+  margin: 0 auto;
+}
+
+input {
+  margin: 1px;
+  color: #222;
+  background-color: turquoise;
+  border: none;
+  border-radius: 2px;
+  font-size: 1.5em;
 }
 
 #numbers {
   display: flex;
   flex-flow: row wrap;
-  width: 60%;
-  height: 50%;
+  justify-content: space-evenly;
+  width: 70%;
+  border: 1px solid silver;
+}
+
+@media (min-width: 512px) {
+  .number {
+    width: 32.7%;
+  }
+
+  #zero {
+    width: 65.9%;
+  }
 }
 
 .number {
-  width: 33%;
-  height: 2em;
+  width: 32%;
+}
+
+#zero {
+  width: 65.5%;
 }
 
 #operations,
 #helpers {
   display: flex;
   flex-direction: column;
-  width: 2em;
+  width: 12.5%;
+  border: 1px solid silver;
 }
 
 .operation,
 .helper {
-  height: 2em;
+  height: 3em;
 }
