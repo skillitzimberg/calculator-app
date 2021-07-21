@@ -48,6 +48,11 @@
   - be able to CLEAR MEMORY
   - be able to RECALL from MEMORY
     - Memory Recall: Use this button to put the contents of the memory onto the display.
+  - see a pretty UI
+    - choose background color
+    - choose color for the keys
+    - choose font colors
+    - add margin to keys
 
 ## Things I Did NOT Plan For Or Know About
 
