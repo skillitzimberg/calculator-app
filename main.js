@@ -12,6 +12,7 @@ class Calculator {
     this.operations["+"] = this.add;
     this.operations["-"] = this.subtract;
     this.operations["x"] = this.multiply;
+    this.operations["÷"] = this.divide;
   }
 
   handleEntry = (e) => {
@@ -70,6 +71,10 @@ class Calculator {
 
   multiply = (a, b) => {
     return Number(a) * Number(b);
+  };
+
+  divide = (a, b) => {
+    return Number(a) / Number(b);
   };
 
   logTerms() {
