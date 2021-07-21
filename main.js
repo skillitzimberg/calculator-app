@@ -27,6 +27,7 @@ class Calculator {
   };
 
   handleNumber(value) {
+    if (value === ".") document.getElementById("decimal").disabled = true;
     this.updateDisplay(value);
     if (this.isFirstOperand) {
       this.firstOperand = Number(this.displayString);
@@ -42,6 +43,7 @@ class Calculator {
 
   handleOperator(operator) {
     this.displayString = "";
+    document.getElementById("decimal").disabled = false;
     if (this.isFirstOperand) {
       this.nextOperation = operator;
       this.isFirstOperand = !this.isFirstOperand;

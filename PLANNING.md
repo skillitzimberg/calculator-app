@@ -40,6 +40,7 @@
   - be able to SUBTRACT two numbers
   - be able to MULTIPLY two numbers
   - be able to DIVIDE two numbers
+  - be able to enter decimals
 
 ## Things I Did NOT Plan For Or Know About
 
