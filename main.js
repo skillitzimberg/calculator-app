@@ -4,7 +4,7 @@ class Calculator {
   firstOperand = 0;
   secondOperand = 0;
   nextOperation = null;
-  isFirstOperand = true;
+  isNewCalculation = true;
   operations = {};
 
   constructor(display) {
@@ -23,13 +23,14 @@ class Calculator {
     if (e.target.className === "number") {
       this.handleNumber(e.target.value);
     }
+
     this.logTerms();
   };
 
   handleNumber(value) {
     if (value === ".") document.getElementById("decimal").disabled = true;
     this.updateDisplay(value);
-    if (this.isFirstOperand) {
+    if (this.isNewCalculation) {
       this.firstOperand = Number(this.displayString);
     } else {
       this.secondOperand = Number(this.displayString);
@@ -44,12 +45,18 @@ class Calculator {
   handleOperator(operator) {
     this.displayString = "";
     document.getElementById("decimal").disabled = false;
-    if (this.isFirstOperand) {
+
+    if (this.isNewCalculation) {
       this.nextOperation = operator;
-      this.isFirstOperand = !this.isFirstOperand;
-    } else {
+      this.isNewCalculation = !this.isNewCalculation;
+    } else if (this.nextOperation === null) {
+      this.nextOperation = operator;
+    } else if (operator !== "=") {
       this.handleOperation(this.nextOperation);
       this.nextOperation = operator;
+    } else {
+      this.handleOperation(this.nextOperation);
+      this.nextOperation = null;
     }
   }
 
@@ -80,7 +87,7 @@ class Calculator {
   };
 
   logTerms() {
-    console.log("USING 1st OP", this.isFirstOperand);
+    console.log("IS NEW CALCULATION", this.isNewCalculation);
     console.log("1st OP", this.firstOperand);
     console.log("2nd OP", this.secondOperand);
     console.log("OPERATOR", this.nextOperation);
