@@ -1,5 +1,5 @@
 class Calculator {
-  displayString = "";
+  displayString = "0";
   result = 0;
   firstOperand = 0;
   secondOperand = 0;
@@ -14,12 +14,20 @@ class Calculator {
     this.operations["-"] = this.subtract;
     this.operations["x"] = this.multiply;
     this.operations["÷"] = this.divide;
+    this.logTerms();
   }
 
   updateDisplay = (value) => {
-    this.isNewCalculation && !this.displayString
-      ? (this.displayString = value)
-      : (this.displayString += value);
+    if (this.displayString === "" && value === ".") {
+      this.displayString += `0${value}`;
+    } else if (this.displayString === "" || value === ".") {
+      this.displayString += `${value}`;
+    } else if (this.displayString !== "0" || value === ".") {
+      this.displayString += `${value}`;
+    } else {
+      this.displayString = `${value}`;
+    }
+
     this.display.textContent = this.displayString;
   };
 
@@ -40,8 +48,9 @@ class Calculator {
   };
 
   handleNumber(value) {
+    // Assume the user is asking for a new calculation
     if (!this.isNewCalculation && !this.nextOperation) {
-      this.reset();
+      this.clearAll();
     }
 
     if (value === ".") document.getElementById("decimal").disabled = true;
@@ -57,7 +66,7 @@ class Calculator {
     this.displayString = "";
     document.getElementById("decimal").disabled = false;
 
-    if (this.isNewCalculation) {
+    if (this.isNewCalculation && operator !== "=") {
       this.nextOperation = operator;
       this.isNewCalculation = !this.isNewCalculation;
     } else if (this.nextOperation === null) {
@@ -83,11 +92,14 @@ class Calculator {
 
   handleHelper(helper) {
     if (helper === "AC") {
-      this.reset();
+      this.clearAll();
+    }
+    if (helper === "CE") {
+      this.clearEntry();
     }
   }
 
-  reset() {
+  clearAll() {
     this.displayString = "";
     this.result = 0;
     this.firstOperand = 0;
@@ -95,6 +107,12 @@ class Calculator {
     this.nextOperation = null;
     this.isNewCalculation = true;
     this.updateDisplay(this.result);
+  }
+
+  clearEntry() {
+    this.displayString = "";
+    this.updateDisplay(0);
+    this.isNewCalculation ? (this.firstOperand = 0) : (this.secondOperand = 0);
   }
 
   add = (a, b) => {
