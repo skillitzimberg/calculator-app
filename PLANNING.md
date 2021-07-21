@@ -41,7 +41,14 @@
   - be able to MULTIPLY two numbers
   - be able to DIVIDE two numbers
   - be able to enter decimals
+  - be able to CLEAR the calculator completely
 
 ## Things I Did NOT Plan For Or Know About
 
 - I had no real idea about how to get operations to run on successive entries (a number followed by an operation followed by another number). I had to kind of stumble around. I had a vague idea about using an `operations` object to map strings like `+` or `x` to functions to handle those operations. I got this working for simple entries, but the display is holding onto the last result (say a 2) and adding to that string (say adding 6 to the 2 to get 26).
+
+## Googled
+
+`common calculator buttons`:
+
+- https://www.calculator.org/CalcHelp/basics.html;

@@ -9,25 +9,41 @@ class Calculator {
 
   constructor(display) {
     this.display = display;
+    this.updateDisplay(this.result);
     this.operations["+"] = this.add;
     this.operations["-"] = this.subtract;
     this.operations["x"] = this.multiply;
     this.operations["÷"] = this.divide;
   }
 
+  updateDisplay = (value) => {
+    this.isNewCalculation && !this.displayString
+      ? (this.displayString = value)
+      : (this.displayString += value);
+    this.display.textContent = this.displayString;
+  };
+
   handleEntry = (e) => {
+    if (e.target.className === "number") {
+      this.handleNumber(e.target.value);
+    }
+
     if (e.target.className === "operation") {
       this.handleOperator(e.target.value);
     }
 
-    if (e.target.className === "number") {
-      this.handleNumber(e.target.value);
+    if (e.target.className === "helper") {
+      this.handleHelper(e.target.value);
     }
 
     this.logTerms();
   };
 
   handleNumber(value) {
+    if (!this.isNewCalculation && !this.nextOperation) {
+      this.reset();
+    }
+
     if (value === ".") document.getElementById("decimal").disabled = true;
     this.updateDisplay(value);
     if (this.isNewCalculation) {
@@ -36,11 +52,6 @@ class Calculator {
       this.secondOperand = Number(this.displayString);
     }
   }
-
-  updateDisplay = (value) => {
-    this.displayString += value;
-    this.display.textContent = this.displayString;
-  };
 
   handleOperator(operator) {
     this.displayString = "";
@@ -68,6 +79,22 @@ class Calculator {
     this.updateDisplay(this.result);
     this.firstOperand = this.result;
     this.displayString = "";
+  }
+
+  handleHelper(helper) {
+    if (helper === "AC") {
+      this.reset();
+    }
+  }
+
+  reset() {
+    this.displayString = "";
+    this.result = 0;
+    this.firstOperand = 0;
+    this.secondOperand = 0;
+    this.nextOperation = null;
+    this.isNewCalculation = true;
+    this.updateDisplay(this.result);
   }
 
   add = (a, b) => {
