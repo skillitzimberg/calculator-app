@@ -27,9 +27,9 @@
     - get a reference to the keypad
     - attach a listener to the keypad
     - create an `result` variable
-    - assign `result` the value entered in the display
-    - create an `operation` variable
-    - assign `operation` the value of `+`
+    - assign `result` the value entered in the display as a number
+    - create an `operation` object
+    - assign `operation["+"]` the value of an ADD function
     - get current entry as first entry
     - get new entry as second entry
     - coerce first and second entries to integers as first and second operands
