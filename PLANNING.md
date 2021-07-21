@@ -42,6 +42,7 @@
   - be able to DIVIDE two numbers
   - be able to enter decimals
   - be able to CLEAR the calculator completely
+  - be able to CLEAR the current ENTRY
 
 ## Things I Did NOT Plan For Or Know About
 
@@ -49,6 +50,9 @@
 
 ## Googled
 
+`mdn class field undefined`:
+`mdn class bind constructor`:
+`mdn class bind`:
 `common calculator buttons`:
 
 - https://www.calculator.org/CalcHelp/basics.html;
