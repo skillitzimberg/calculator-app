@@ -20,7 +20,7 @@ class Calculator {
 
   updateDisplay = (value) => {
     if (this.displayString === "" && value === ".") {
-      this.displayString += `0${value}`;
+      this.displayString = `0${value}`;
     } else if (this.displayString === "" || value === ".") {
       this.displayString += `${value}`;
     } else if (this.displayString !== "0" || value === ".") {
@@ -104,6 +104,9 @@ class Calculator {
     if (helper === "M-") {
       this.memoryClear();
     }
+    if (helper === "MR") {
+      this.memoryRecall();
+    }
   }
 
   clearAll() {
@@ -129,6 +132,14 @@ class Calculator {
 
   memoryClear() {
     this.memory = 0;
+  }
+
+  memoryRecall() {
+    this.isNewCalculation
+      ? (this.firstOperand = this.memory)
+      : (this.secondOperand = this.memory);
+    this.displayString = "";
+    this.updateDisplay(this.memory);
   }
 
   add = (a, b) => {
