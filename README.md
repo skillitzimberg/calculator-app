@@ -2,11 +2,12 @@
 
 ## A JavaScript calculator.
 
-[View the calculator live]().
+[View the calculator live](https://skillitzimberg.github.io/calculator-app/).
+![](./calculator.png)
 
 ## Summary
 
-This the fourth app on my roadmap part of the Software Development Mastermind program.
+This the fourth app on my roadmap part of the Software Development Mastermind program. Building this app got more familiar with JavaScript classes and classes in general. I also gained a sense of fluidity in working with event delegation and how the organization of the HTML can really make things easier on the logic side.
 
 The expectations for the project are described in [DELIVERABLES](./DELIVERABLES.md).
 
