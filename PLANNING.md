@@ -43,6 +43,11 @@
   - be able to enter decimals
   - be able to CLEAR the calculator completely
   - be able to CLEAR the current ENTRY
+  - be able to save to MEMORY
+    - [Memory Plus](https://www.calculator.org/CalcHelp/basics.html): Pressing this button adds the number displayed to the contents of the memory.
+  - be able to CLEAR MEMORY
+  - be able to RECALL from MEMORY
+    - Memory Recall: Use this button to put the contents of the memory onto the display.
 
 ## Things I Did NOT Plan For Or Know About
 

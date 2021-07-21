@@ -6,6 +6,7 @@ class Calculator {
   nextOperation = null;
   isNewCalculation = true;
   operations = {};
+  memory = 0;
 
   constructor(display) {
     this.display = display;
@@ -19,7 +20,7 @@ class Calculator {
 
   updateDisplay = (value) => {
     if (this.displayString === "" && value === ".") {
-      this.displayString += `0${value}`;
+      this.displayString = `0${value}`;
     } else if (this.displayString === "" || value === ".") {
       this.displayString += `${value}`;
     } else if (this.displayString !== "0" || value === ".") {
@@ -97,6 +98,15 @@ class Calculator {
     if (helper === "CE") {
       this.clearEntry();
     }
+    if (helper === "M+") {
+      this.memorySave();
+    }
+    if (helper === "M-") {
+      this.memoryClear();
+    }
+    if (helper === "MR") {
+      this.memoryRecall();
+    }
   }
 
   clearAll() {
@@ -113,6 +123,23 @@ class Calculator {
     this.displayString = "";
     this.updateDisplay(0);
     this.isNewCalculation ? (this.firstOperand = 0) : (this.secondOperand = 0);
+  }
+
+  memorySave() {
+    this.memory =
+      this.displayString !== "" ? Number(this.displayString) : this.result;
+  }
+
+  memoryClear() {
+    this.memory = 0;
+  }
+
+  memoryRecall() {
+    this.isNewCalculation
+      ? (this.firstOperand = this.memory)
+      : (this.secondOperand = this.memory);
+    this.displayString = "";
+    this.updateDisplay(this.memory);
   }
 
   add = (a, b) => {
@@ -138,6 +165,7 @@ class Calculator {
     console.log("OPERATOR", this.nextOperation);
     console.log("RESULT", this.result);
     console.log("DISPLAY", this.displayString);
+    console.log("MEMORY", this.memory);
     console.log();
   }
 }
