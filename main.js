@@ -1,37 +1,41 @@
-const display = document.getElementById("display");
-const keypad = document.getElementById("keypad");
-
-keypad.addEventListener("click", handleEntry);
-
-let result = 0;
-let nextOperation = null;
-let displayString = "";
-
-function handleEntry(e) {
-  if (e.target.className === "operation") {
-    nextOperation = e.target.value;
-  }
-
-  if (e.target.className === "number") {
-    nextOperation === null
-      ? enterValue(e.target.value)
-      : operations[nextOperation](e.target.value);
-  }
-}
-
-function enterValue(value) {
-  displayString += value;
-  display.textContent = displayString;
-  result = Number(displayString);
-}
-
-function add(value) {
-  result += Number(value);
-  display.textContent = result;
-  nextOperation = null;
+class Calculator {
+  result = 0;
   displayString = "";
+  nextOperation = null;
+  operations = {};
+
+  constructor(display) {
+    this.display = display;
+    this.operations["+"] = this.add;
+  }
+
+  handleEntry = (e) => {
+    if (e.target.className === "operation") {
+      this.nextOperation = e.target.value;
+    }
+
+    if (e.target.className === "number") {
+      this.nextOperation === null
+        ? this.enterValue(e.target.value)
+        : this.operations[this.nextOperation](e.target.value);
+    }
+  };
+
+  enterValue = (value) => {
+    this.displayString += value;
+    this.display.textContent = this.displayString;
+    this.result = Number(this.displayString);
+  };
+
+  add = (value) => {
+    this.result += Number(value);
+    this.display.textContent = this.result;
+    this.nextOperation = null;
+    this.displayString = "";
+  };
 }
 
-const operations = {
-  "+": add,
-};
+const calculator = new Calculator(document.getElementById("display"));
+document
+  .getElementById("keypad")
+  .addEventListener("click", calculator.handleEntry);
