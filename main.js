@@ -6,6 +6,7 @@ class Calculator {
   nextOperation = null;
   isNewCalculation = true;
   operations = {};
+  memory = 0;
 
   constructor(display) {
     this.display = display;
@@ -97,6 +98,9 @@ class Calculator {
     if (helper === "CE") {
       this.clearEntry();
     }
+    if (helper === "M+") {
+      this.memorySave();
+    }
   }
 
   clearAll() {
@@ -113,6 +117,11 @@ class Calculator {
     this.displayString = "";
     this.updateDisplay(0);
     this.isNewCalculation ? (this.firstOperand = 0) : (this.secondOperand = 0);
+  }
+
+  memorySave() {
+    this.memory =
+      this.displayString !== "" ? Number(this.displayString) : this.result;
   }
 
   add = (a, b) => {
@@ -138,6 +147,7 @@ class Calculator {
     console.log("OPERATOR", this.nextOperation);
     console.log("RESULT", this.result);
     console.log("DISPLAY", this.displayString);
+    console.log("MEMORY", this.memory);
     console.log();
   }
 }
