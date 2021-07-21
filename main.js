@@ -11,6 +11,7 @@ class Calculator {
     this.display = display;
     this.operations["+"] = this.add;
     this.operations["-"] = this.subtract;
+    this.operations["x"] = this.multiply;
   }
 
   handleEntry = (e) => {
@@ -65,6 +66,10 @@ class Calculator {
 
   subtract = (a, b) => {
     return Number(a) - Number(b);
+  };
+
+  multiply = (a, b) => {
+    return Number(a) * Number(b);
   };
 
   logTerms() {
