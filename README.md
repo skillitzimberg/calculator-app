@@ -2,7 +2,7 @@
 
 ## A JavaScript calculator.
 
-[View the calculator live](https://skillitzimberg.github.io/calculator-app/).
+[View the calculator live](https://skillitzimberg.github.io/calculator-app/).  
 ![](./calculator.png)
 
 ## Summary
