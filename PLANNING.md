@@ -45,6 +45,7 @@
   - be able to CLEAR the current ENTRY
   - be able to save to MEMORY
     - [Memory Plus](https://www.calculator.org/CalcHelp/basics.html): Pressing this button adds the number displayed to the contents of the memory.
+  - be able to CLEAR MEMORY
 
 ## Things I Did NOT Plan For Or Know About
 

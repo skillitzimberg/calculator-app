@@ -101,6 +101,9 @@ class Calculator {
     if (helper === "M+") {
       this.memorySave();
     }
+    if (helper === "M-") {
+      this.memoryClear();
+    }
   }
 
   clearAll() {
@@ -122,6 +125,10 @@ class Calculator {
   memorySave() {
     this.memory =
       this.displayString !== "" ? Number(this.displayString) : this.result;
+  }
+
+  memoryClear() {
+    this.memory = 0;
   }
 
   add = (a, b) => {
