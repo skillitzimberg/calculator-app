@@ -8,8 +8,8 @@ class Calculator {
   operations = {};
   memory = 0;
 
-  constructor(display) {
-    this.display = display;
+  constructor() {
+    this.display = document.getElementById("display");
     this.updateDisplay(this.result);
     this.operations["+"] = this.add;
     this.operations["-"] = this.subtract;
@@ -162,7 +162,7 @@ class Calculator {
   }
 }
 
-const calculator = new Calculator(document.getElementById("display"));
+const calculator = new Calculator();
 document
   .getElementById("keypad")
   .addEventListener("click", calculator.handleEntry);
