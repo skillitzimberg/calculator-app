@@ -91,6 +91,14 @@ class Calculator {
     this.displayString = "";
   }
 
+  add = (a, b) => Number(a) + Number(b);
+
+  subtract = (a, b) => Number(a) - Number(b);
+
+  multiply = (a, b) => Number(a) * Number(b);
+
+  divide = (a, b) => Number(a) / Number(b);
+
   handleHelper(helper) {
     if (helper === "AC") {
       this.clearAll();
@@ -141,22 +149,6 @@ class Calculator {
     this.displayString = "";
     this.updateDisplay(this.memory);
   }
-
-  add = (a, b) => {
-    return Number(a) + Number(b);
-  };
-
-  subtract = (a, b) => {
-    return Number(a) - Number(b);
-  };
-
-  multiply = (a, b) => {
-    return Number(a) * Number(b);
-  };
-
-  divide = (a, b) => {
-    return Number(a) / Number(b);
-  };
 
   logTerms() {
     console.log("IS NEW CALCULATION", this.isNewCalculation);
